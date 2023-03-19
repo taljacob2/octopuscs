@@ -11,7 +11,7 @@ ENV NODE_DOCKER_PORT=3001
 
 # ----- Build -----
 # Create app directory
-WORKDIR /app
+WORKDIR /octopuscs-app
 
 # Install app dependencies
 COPY package*.json ./

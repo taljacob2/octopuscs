@@ -26,7 +26,7 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=$DB_PASSWORD
       - ME_CONFIG_MONGODB_SERVER=mongodb
 
- app:
+ octopuscs-app:
    depends_on:
      - mongodb # Must -> Same as the `db` service name, as declared above.
    build: .
