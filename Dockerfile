@@ -1,19 +1,28 @@
 # ----- `FROM` (this section MUST be first) -----
-FROM openjdk:17-jre-alpine
+FROM node:16
 # ----- `FROM` (this section MUST be first) -----
 
 
 # ----- Variables -----
-# Port (MUST be the same as `SPRING_DOCKER_PORT` in `.env` file)
-ENV SPRING_DOCKER_PORT=8075
-# Name
-ARG APP_NAME=app.jar
-ENV APP_PATH=app/$APP_NAME
+# Port (MUST be the same as `NODE_DOCKER_PORT` in `.env` file)
+ENV NODE_DOCKER_PORT=3001
 # ----- Variables -----
 
 
 # ----- Build -----
-EXPOSE $SPRING_DOCKER_PORT
-ADD spring/build/libs/$APP_NAME $APP_PATH
-ENTRYPOINT java -jar $APP_PATH --server.port=$PORT
+# Create app directory
+WORKDIR /app
+
+# Install app dependencies
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE $NODE_DOCKER_PORT
+CMD [ "npm", "start" ]
 # ----- Build -----
