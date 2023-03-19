@@ -1,5 +1,5 @@
-const express = require('express'),
-    app = express()
+const express = require('express')
+const app = express()
 
 /** @see https://masteringjs.io/tutorials/express/express-json */
 app.use(express.json());
@@ -20,11 +20,11 @@ app.use('*', function (req, res, next) {
 /** Route to "static" directory. */
 app.use(express.static('src/static'));
 
-// const statsRouter = require('./src/router/stats/stats');
-// app.use('/stats', statsRouter);
+const statsRouter = require('./src/router/stats/stats');
+app.use('/stats', statsRouter);
 
-// const emailRouter = require('./src/router/email/email');
-// app.use('/email', emailRouter);
+const emailRouter = require('./src/router/email/email');
+app.use('/email', emailRouter);
 
 /**
  * Defines main router. Main page.
