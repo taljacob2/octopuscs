@@ -26,26 +26,16 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=$DB_PASSWORD
       - ME_CONFIG_MONGODB_SERVER=mongodb
 
-#  app:
-#    depends_on:
-#      - mongodb # Must -> Same as the `db` service name, as declared above.
-#    build: .
-#    restart: always
-#    env_file: ./.env
-#    ports:
-#      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
-#    environment:
-#      SPRING_APPLICATION_JSON: '{
-#        "spring.data.mongodb.username"  : "rootuser",
-#        "spring.data.mongodb.password" : "rootpass",
-#        "spring.data.mongodb.database" : "taldb",
-#        "spring.data.mongodb.port" : "27017",
-#        "spring.data.mongodb.host" : "localhost",
-#        "server.port" : "$SPRING_DOCKER_PORT",
-#        "spring.data.mongodb.auto-index-creation" : "true"
-#      }'
-#    stdin_open: true
-#    tty: true
+ app:
+   depends_on:
+     - mongodb # Must -> Same as the `db` service name, as declared above.
+   build: .
+   restart: always
+   env_file: ./.env
+   ports:
+     - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+   stdin_open: true
+   tty: true
 
 volumes:
   data: {}
