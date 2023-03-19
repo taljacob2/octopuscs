@@ -22,11 +22,8 @@ app.use('*', function (req, res, next) {
 /** Route to "static" directory. */
 app.use(express.static('src/static'));
 
-const statsRouter = require('./src/router/stats/stats');
-app.use('/stats', statsRouter);
-
-const emailRouter = require('./src/router/email/email');
-app.use('/email', emailRouter);
+const itemsRouter = require('./src/controllers/item-controller');
+app.use('/api/items', itemsRouter);
 
 /**
  * Defines main router. Main page.
