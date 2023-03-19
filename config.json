@@ -1,5 +1,5 @@
 {
     "database": {
-        "connectionString": "mongodb://localhost:27017/Northwind"
+        "connectionString": "mongodb://db_1_service_user:<password>@localhost:27017/db_1"
     }
 }
