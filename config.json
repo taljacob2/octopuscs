@@ -1,5 +1,5 @@
 {
     "database": {
-        "connectionString": "mongodb://rootuser:rootpass@mongodb:27017/octopuscs_db?authSource=admin"
+        "connectionString": "mongodb://rootuser:rootpass@localhost:27016"
     }
 }
