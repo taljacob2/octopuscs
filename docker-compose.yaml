@@ -26,16 +26,16 @@ services:
       - ME_CONFIG_MONGODB_ADMINPASSWORD=$DB_PASSWORD
       - ME_CONFIG_MONGODB_SERVER=mongodb
 
- octopuscs-app:
-   depends_on:
-     - mongodb # Must -> Same as the `db` service name, as declared above.
-   build: .
-   restart: always
-   env_file: ./.env
-   ports:
-     - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
-   stdin_open: true
-   tty: true
+  octopuscs-app:
+    depends_on:
+      - mongodb # Must -> Same as the `db` service name, as declared above.
+    build: .
+    restart: always
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    stdin_open: true
+    tty: true
 
 volumes:
   data: {}
