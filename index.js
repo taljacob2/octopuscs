@@ -22,7 +22,7 @@ app.use('*', function (req, res, next) {
 /** Route to "static" directory. */
 app.use(express.static('src/static'));
 
-const itemsRouter = require('./src/controllers/item-controller');
+const itemsRouter = require('./src/controllers/items-controller');
 app.use('/api/items', itemsRouter);
 
 /**

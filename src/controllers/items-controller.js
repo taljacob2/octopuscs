@@ -1,4 +1,5 @@
 const express = require('express')
+const itemsLogic = require("../logics/items-logic");
 const router = express.Router()
 
 router.get("/", async (request, response) => {
