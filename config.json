@@ -1,8 +1,5 @@
 {
-    "mongodb": {
-        "host": "localhost",
-        "user": "root",
-        "password": "",
-        "database": "mymission4db"
+    "database": {
+        "connectionString": "mongodb://localhost:27017/Northwind"
     }
 }
