@@ -3,8 +3,8 @@ const router = express.Router()
 
 router.get("/", async (request, response) => {
     try {
-        const members = await membersLogic.getAllMembersAsync();
-        response.json(members);
+        const items = await itemsLogic.getAllMembersAsync();
+        response.json(items);
     }
     catch (err) {
         response.status(500).send(err.message);
