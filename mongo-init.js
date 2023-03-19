@@ -1,8 +1,10 @@
 conn = new Mongo();
-db = conn.getDB("MyDatabaseName");
+db = conn.getDB("octopuscs-db");
 
 
-db.myCollectionName.createIndex({ "address.zip": 1 }, { unique: false });
+db.items.createIndex({ "item.zip": 1 }, { unique: false });
 
-db.myCollectionName.insert({ "address": { "city": "Paris", "zip": "123" }, "name": "Mike", "phone": "1234" });
-db.myCollectionName.insert({ "address": { "city": "Marsel", "zip": "321" }, "name": "Helga", "phone": "4321" });
+db.items.insert({ "name": "apples", "qty": 5, "rating": 3 });
+db.items.insert({ "name": "bananas", "qty": 7, "rating": 1, "microsieverts": 0.1 });
+db.items.insert({ "name": "oranges", "qty": 6, "rating": 2 });
+db.items.insert({ "name": "avocados", "qty": 3, "rating": 5 });
