@@ -1,5 +1,9 @@
 # octopuscs
 
+A simple app for demonstrating the use of docker containers with Node.js and MongoDB.
+
+The home page of the app is destined to display the quantity of apples in the database.
+
 ## Prerequisite
 
 Install [docker desktop](https://docs.docker.com/desktop/).
