@@ -1,23 +1,23 @@
-const mongodb = require("mongodb");
+const mongoose = require("mongoose");
 
 function connectAsync() {
     return new Promise((resolve, reject) => {
         const options = { useNewUrlParser: true, useUnifiedTopology: true };
-        mongodb.MongoClient.connect(process.env.MONGO_URI, options, (err, mongoClient) => {
-            if (err) return reject(err);
-            const db = mongoClient.db();
+        mongoose.connect(process.env.MONGO_URI, options, (err, db) => {
+            if (err) {
+                reject(err);
+                return;
+            }
             resolve(db);
         });
     });
 }
 
-let database;
-connectAsync().then(db => database = db).catch(err => console.error(err));
-
-function getDatabase() {
-    return database;
-}
-
-module.exports = {
-    getDatabase
-};
+(async () => {
+    try {
+        await connectAsync();
+    }
+    catch(err) {
+        console.log(err);
+    }
+})();
