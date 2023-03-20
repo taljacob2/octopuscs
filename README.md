@@ -10,7 +10,7 @@ Install [docker desktop](https://docs.docker.com/desktop/).
 
 ## Run
 
-- Run with:
+- To run the application:
 
   ```
   docker-compose up -d
