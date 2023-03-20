@@ -45,3 +45,7 @@ a {
 .section .content {
     margin-left: 3em;
 }
+
+#apples-quantity {
+    background-color: #ffc800;
+}
