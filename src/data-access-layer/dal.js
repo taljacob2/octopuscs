@@ -14,8 +14,6 @@ function connectAsync() {
 let database;
 connectAsync().then(db => database = db).catch(err => console.error(err));
 
-console.log("uri", process.env.MONGO_URI)
-
 function getDatabase() {
     return database;
 }
