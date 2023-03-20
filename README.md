@@ -74,3 +74,12 @@ flowchart TD
 - `mongodb` stores the MongoDB database at http://localhost:27017/
 - `mongo-express` may view the database at http://localhost:8061/
 - `app` opens at http://localhost:3000/
+
+---
+
+## About Releases
+
+The [docker-publish.yml](.github/workflows/docker-publish.yml) file builds and publishes a release of the `app` image.
+
+You may download the latest release of the `app` image [here](https://github.com/taljacob2/octopuscs/pkgs/container/octopuscs).
+
