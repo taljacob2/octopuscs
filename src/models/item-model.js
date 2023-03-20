@@ -29,6 +29,7 @@ const ItemSchema = mongoose.Schema({
 })
 
 // class name, schema, collection
-const Item = model('Item', ItemSchema, "items")
+const ItemModel = mongoose.model('ItemModel', ItemSchema, "items")
 
-export default Item
+
+module.exports = ItemModel;
