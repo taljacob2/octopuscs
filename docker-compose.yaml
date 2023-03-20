@@ -39,7 +39,6 @@ services:
     tty: true
     environment:
       - MONGO_URI=$MONGO_URI_WHEN_USING_DOCKER_COMPOSE
-      - DB_DATABASE=$DB_DATABASE
 
 
 volumes:
