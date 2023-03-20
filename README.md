@@ -31,3 +31,20 @@ ITEMS {
 
 ```
 
+The [docker-compose.yaml](docker-compose.yaml) pre-defines an architecure of 
+images ready to be loaded into containers.
+When running the `docker-compose up -d` command, the architecture initiates itself and runs.
+```mermaid
+---
+title: octopuscs network
+---
+flowchart TD
+    compose[`docker-compose up -d`] --> octopuscs-network[octopuscs network]
+
+    subgraph octopuscs-network
+    direction BT
+    mongodb
+    mongo-express["mongo-express (UI)"]
+    app -->|Depends on| mongodb
+    end
+```
