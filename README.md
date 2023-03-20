@@ -45,10 +45,18 @@ flowchart TD
     subgraph octopuscs-network
     direction BT
         subgraph mongodb-initialization
+        direction BT
             mongodb[(mongodb)] --> |Calls| mongo-init>mongo-init.js]
         end
+
         mongo-express["mongo-express (UI)"]
-        app -->|Depends on| mongodb
+
+        subgraph app-initialization
+        direction BT
+            app --> |Calls| dockerfile>Dockerfile]
+        end
+
+        app-initialization -->|Depends on| mongodb-initialization
     end
 ```
 
