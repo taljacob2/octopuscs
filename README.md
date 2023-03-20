@@ -27,22 +27,7 @@ Install [docker desktop](https://docs.docker.com/desktop/).
 
 ## Visual Demonstration Of The Architecture
 
-### ERD
-
-```mermaid
-erDiagram
-
-ITEMS {
-    String _id PK
-    String name
-    Number qty
-    Number rating
-    Number microsieverts
-}
-
-```
-
-### Docker Initialization
+### Docker Initialization Architecture
 
 The [docker-compose.yaml](docker-compose.yaml) pre-defines an architecure of 
 images ready to be loaded into containers.
@@ -74,6 +59,23 @@ flowchart TD
 - `mongodb` stores the MongoDB database at http://localhost:27017/
 - `mongo-express` may view the database at http://localhost:8061/
 - `app` opens at http://localhost:3000/
+
+### App Architecture
+
+### ERD
+
+```mermaid
+erDiagram
+
+ITEMS {
+    String _id PK
+    String name
+    Number qty
+    Number rating
+    Number microsieverts
+}
+
+```
 
 ---
 
