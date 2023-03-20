@@ -82,7 +82,7 @@ ITEMS {
 ```mermaid
 flowchart TD
 `index.js` --> |Establish Connection To DB| `dal.js`
-HomePage[Home Page] -->|Http Request To View Apples' Quantity| Controllers --> Logics --> `dal.js` --> MongoDB[(MongoDB)]
+HomePage[Home Page] <-->|Http Request To View Apples' Quantity| Controllers <--> Logics <--> `dal.js` <--> MongoDB[(MongoDB)]
 
 ```
 
