@@ -13,10 +13,11 @@ function getItemByNameAsync(name) {
 }
 
 function getQuantityOfItemByNameAsync(name) {
-    return ItemModel.findOne({ name: name }, 'qty');
+    return ItemModel.findOne({ name: name }, 'qty').exec();
 }
 
 
 module.exports = {
-    getAllItemsAsync
+    getAllItemsAsync,
+    getQuantityOfItemByNameAsync
 }
