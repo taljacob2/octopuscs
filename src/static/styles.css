@@ -4,8 +4,8 @@
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     margin: 0;
-    background-color: #191b1d;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 a {
@@ -44,4 +44,8 @@ a {
 
 .section .content {
     margin-left: 3em;
+}
+
+#apples-quantity {
+    background-color: #ffc800;
 }
