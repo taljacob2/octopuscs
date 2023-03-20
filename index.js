@@ -1,5 +1,8 @@
 global.config = require("./config.json");
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 const express = require('express')
 const app = express()
 
