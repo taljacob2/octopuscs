@@ -7,7 +7,7 @@ services:
     container_name: mongodb
     env_file: ./.env
     ports:
-      - $DB_LOCAL_PORT:$DB_DOCKER_PORT
+      - $DB_LOCAL_PORT:$DB_LOCAL_PORT
     volumes:
       - db-data:/data/db
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
@@ -37,6 +37,10 @@ services:
       - $NODE_LOCAL_PORT:$NODE_LOCAL_PORT
     stdin_open: true
     tty: true
+    environment:
+      - MONGO_URI=$MONGO_URI_WHEN_USING_DOCKER_COMPOSE
+      - DB_DATABASE=$DB_DATABASE
+
 
 volumes:
   db-data: {}

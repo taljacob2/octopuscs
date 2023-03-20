@@ -3,7 +3,7 @@ const mongodb = require("mongodb");
 function connectAsync() {
     return new Promise((resolve, reject) => {
         const options = { useNewUrlParser: true, useUnifiedTopology: true };
-        mongodb.MongoClient.connect(config.database.connectionString, options, (err, mongoClient) => {
+        mongodb.MongoClient.connect(process.env.MONGO_URI, options, (err, mongoClient) => {
             if (err) return reject(err);
             const db = mongoClient.db();
             resolve(db);
