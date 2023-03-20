@@ -1,4 +1,3 @@
-require("../data-access-layer/dal");
 const ItemModel = require("../models/item-model");
 
 function getAllItemsAsync() {
