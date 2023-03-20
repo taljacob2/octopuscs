@@ -1,23 +1,13 @@
-const mongodb = require("mongodb");
+const mongoose = require("mongoose");
 
-function connectAsync() {
-    return new Promise((resolve, reject) => {
-        const options = { useNewUrlParser: true, useUnifiedTopology: true };
-        mongodb.MongoClient.connect(process.env.MONGO_URI, options, (err, mongoClient) => {
-            if (err) return reject(err);
-            const db = mongoClient.db();
-            resolve(db);
-        });
-    });
+const connectAsync = async() => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log("MongoDB is connected")
+    } catch (err) {
+        console.log(err.message)
+        process.exit(1)
+    }
 }
 
-let database;
-connectAsync().then(db => database = db).catch(err => console.error(err));
-
-function getDatabase() {
-    return database;
-}
-
-module.exports = {
-    getDatabase
-};
+module.exports = connectAsync
