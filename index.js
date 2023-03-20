@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
     res.sendFile('./src/static/index.html', { root: __dirname })
 })
 
-const PORT = process.env.NODE_LOCAL_PORT || 3000
+const PORT = process.env.NODE_LOCAL_PORT
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}...`)
 })
