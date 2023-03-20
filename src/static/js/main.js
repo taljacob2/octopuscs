@@ -14,4 +14,4 @@
     console.log("hello")
 
     fetchApples()
-}(JQuery));
+}(jQuery));
