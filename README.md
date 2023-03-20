@@ -10,14 +10,19 @@ Install [docker desktop](https://docs.docker.com/desktop/).
 
 ## Run
 
-Run with:
+- Run with:
 
-```
-docker-compose up -d
-```
+  ```
+  docker-compose up -d
+  ```
+  
+  the application opens at http://localhost:3000/
 
-the application opens at http://localhost:3000/
+- To stop the application:
 
+  ```
+  docker-compose down
+  ```
 ---
 
 ## Visual Demonstration Of The Architecture
