@@ -18,6 +18,8 @@ the application opens at http://localhost:3000/
 
 ## Visual Demonstration Of The Architecture
 
+### ERD
+
 ```mermaid
 erDiagram
 
@@ -30,6 +32,8 @@ ITEMS {
 }
 
 ```
+
+### Docker Initialization
 
 The [docker-compose.yaml](docker-compose.yaml) pre-defines an architecure of 
 images ready to be loaded into containers.
