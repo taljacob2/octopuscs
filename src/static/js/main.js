@@ -10,8 +10,5 @@
         );
     }
 
-    // TODO: DEBUG
-    console.log("hello")
-
     fetchApples()
 }(jQuery));
