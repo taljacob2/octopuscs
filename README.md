@@ -49,3 +49,9 @@ flowchart TD
     app -->|Depends on| mongodb
     end
 ```
+
+### About The Containers
+
+- `mongodb` stores the MongoDB database at http://localhost:27017/
+- `mongo-express` may view the database at http://localhost:8061/
+- `app` opens at http://localhost:3000/
