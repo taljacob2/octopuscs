@@ -1,19 +1,16 @@
 const connectAsync = require('./src/data-access-layer/dal')
-
 const dotenv = require('dotenv')
-dotenv.config()
-
 const express = require('express')
 const app = express()
+const itemsRouter = require('./src/controllers/items-controller');
 
-/** @see https://masteringjs.io/tutorials/express/express-json */
+// Configure environment variables.
+dotenv.config()
+
+// Use JSON as default body.
 app.use(express.json());
 
-/** 
- * Configure CORS middleware.
- * 
- * @see https://stackoverflow.com/a/37228330/14427765
- */
+// Configure CORS middleware.
 app.use('*', function (req, res, next) {    
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -22,24 +19,18 @@ app.use('*', function (req, res, next) {
     next()
 });
 
-/** Route to "static" directory. */
+// Route to "static" directory.
 app.use(express.static('src/static'));
 
-const itemsRouter = require('./src/controllers/items-controller');
-app.use('/api/items', itemsRouter);
-
-/**
- * Defines main router. Main page.
- * 
- * @example
- * https://sz2ifw.deta.dev
- */
+// Define main router. Main page.
 app.get('/', (req, res) => {
-    // #swagger.description = 'Main page.'
-
     res.sendFile('./src/static/index.html', { root: __dirname })
 })
 
+// Define routers
+app.use('/api/items', itemsRouter);
+
+// Start app while verifying connection to the database.
 const PORT = process.env.NODE_LOCAL_PORT
 app.listen(PORT, () => {
     connectAsync().then(() => {
