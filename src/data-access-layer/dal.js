@@ -1,23 +1,13 @@
 const mongoose = require("mongoose");
 
-function connectAsync() {
-    return new Promise((resolve, reject) => {
-        const options = { useNewUrlParser: true, useUnifiedTopology: true };
-        mongoose.connect(process.env.MONGO_URI, options, (err, db) => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            resolve(db);
-        });
-    });
+const connectAsync = async() => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log("MongoDB is connected")
+    } catch (err) {
+        console.log(err.message)
+        process.exit(1)
+    }
 }
 
-(async () => {
-    try {
-        await connectAsync();
-    }
-    catch(err) {
-        console.log(err);
-    }
-})();
+module.exports = connectAsync

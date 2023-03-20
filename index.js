@@ -1,4 +1,4 @@
-global.config = require("./config.json");
+const connectAsync = require('./src/data-access-layer/dal')
 
 const dotenv = require('dotenv')
 dotenv.config()
@@ -42,7 +42,9 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.NODE_LOCAL_PORT
 app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}...`)
+    connectAsync().then(() => {
+        console.log(`App listening on port ${PORT}...`)
+    })    
 })
 
 module.exports = app
