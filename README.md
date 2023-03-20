@@ -62,7 +62,7 @@ flowchart TD
 
 ### App Architecture
 
-### ERD
+#### ERD
 
 ```mermaid
 erDiagram
@@ -74,6 +74,15 @@ ITEMS {
     Number rating
     Number microsieverts
 }
+
+```
+
+#### App Flow
+
+```mermaid
+flowchart TD
+`index.js` --> |Establish Connection To DB| `dal.js`
+HomePage[Home Page] -->|Http Request To View Apples' Quantity| Controllers --> Logics --> `dal.js` --> MongoDB[(MongoDB)]
 
 ```
 
